@@ -1,0 +1,7 @@
+Topicos Avançado - DI
+* Exemplo Real
+* Ciclo de Vida
+* Generics
+* From Services
+* Service Locator
+* Multiplas Implementações

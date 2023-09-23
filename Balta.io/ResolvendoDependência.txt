@@ -1,0 +1,54 @@
+
+public interface IService {}
+public class ServiceOne : IService { }
+public class ServiceTwo : IService { } 
+
+builder.Services.AddTransient<IService, ServiceOne>();
+builder.Services.AddTransient<IService, ServiceTwo>();
+
+Nesse caso, ele vai retornar somente o ultimo registrado, nesse caso pegaria o ServiceTwo
+
+builder.Services.AddTransient<IService, ServiceOne>();
+builder.Services.AddTransient<IService, ServiceOne>();
+builder.Services.AddTransient<IService, ServiceOne>();
+builder.Services.AddTransient<IService, ServiceTwo>();
+
+Não significa que ele registrou somente o Ultimo, ele traz todas as instancias, mas quando vc
+manda o aspnet resolver, ele só trás o Ultimo
+
+----------------------------------------Service Descriptor --------------------------------
+- Descreve como Resolver uma dependência
+
+- Determina o tipo e tempo de vida dela
+
+- AddTransient, AddScoped e AddSingleton são "Wrapers" deste item
+
+codigo:				    //abstração		//Implementação		//Tempo de vida
+var descriptor = new ServiceDescriptor(typeof(IService), typeof(ServiceOne), ServiceLifetime.Singleton);
+
+builder.Service.Add(descriptor)
+
+
+----------------------------------------TryAdd----------------------------------------
+* Inverte o Comportamento
+* Não dá erro, mas não duplica
+* Compara apenas a abstração
+	-não registra duas implementações para uma mesma abstração(interface)
+
+ele registraria somente o primeiro item, e ignorar o resto, para garantir 
+builder.Services.AddTransient<IService, ServiceOne>();
+builder.Services.AddTransient<IService, ServiceOne>();
+builder.Services.AddTransient<IService, ServiceOne>();
+builder.Services.AddTransient<IService, ServiceTwo>();
+----------------------------------------TryAddEnumerable----------------------------------------
+* Permite regisrar o ServiceOne e ServiceTwo
+* porém, não permite duplicar (2 e 2 por exemplo)
+* Único (interface e implementação)
+
+------------------------------------------Resolvendo Dependências-------------------
+* Construtor - Private Readonly 
+	- public construtor(IService service) => _service = service
+* Na assinatura do Método
+	public IActionResult Get([FromService] IService service) => 
+* No Program
+* No HttpContext

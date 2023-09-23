@@ -1,0 +1,31 @@
+Qual a diferença entre AddTransient, AddScoped e AddSingleton?
+
+AddTransiente instancia um serviço toda vez q o necessario
+AddScoped instancia somente uma vez e guarda na e reutiliza toda vez q o necessario (por requisição)
+AddSingleton instancia somente uma vez e guarda na memoria (independente da requisição)
+
+Qual a finalidade do atributo [FromService]?
+ O atributo [FromService] é geralmente usado em ASP.NET Core para injetar um serviço diretamente como parâmetro de ação em um controlador, permitindo que você acesse o serviço diretamente em sua ação sem passá-lo como um argumento. Ele é usado principalmente para facilitar a injeção de dependência em ações de controlador.
+
+Podemos resolver dependências fora dos controladores?
+Sim! Pode ser resolvido pelo Program.cs, Atributos e Middlers
+
+de Forma Resumida, você consegue me dizer oq é injeção de dependência?
+Injeção de dependencia é depender de abstração e não da implementação, fazendo a invesão de dependencia
+e tendo baixo acoplamento
+
+oq é Inversão de controle?
+Externaliza as responsabilidades criando uma dependencia externa, facilida as mudanças 
+
+oq é o DIP, Inversão de Dependência
+Dip é o princípio da inversão de Dependencia, faz parte dos Principios do SOLID, é a parte onde 
+falamos que não devemos depender de implentações e sim de abstrações
+
+Qual a relação entre injeção de dependência, inversão de controle e inversão de dependência?
+Injeção de Dependência (DI - Dependency Injection): É uma técnica usada no desenvolvimento de software que se relaciona com a Inversão de Controle (IoC) e a Inversão de Dependência (DIP). A Injeção de Dependência envolve fornecer objetos dependentes a uma classe em vez de a própria classe criar esses objetos. Isso permite maior flexibilidade, reusabilidade e facilita a testabilidade do código. Em resumo, a classe não é responsável por criar suas próprias dependências, mas recebe essas dependências de fora, geralmente por meio de construtores ou métodos de configuração.
+
+Inversão de Controle (IoC - Inversion of Control): A Inversão de Controle é um princípio de design que significa que o controle do fluxo de um programa não é mais determinado internamente na classe, mas sim por um componente externo. Isso permite que as classes sejam mais flexíveis e reutilizáveis, pois não estão diretamente acopladas a outras classes ou componentes. A Injeção de Dependência é uma técnica frequentemente usada para aplicar o princípio da Inversão de Controle.
+
+Inversão de Dependência (DIP - Dependency Inversion Principle): Este é um dos cinco princípios do SOLID, um conjunto de diretrizes para escrever código orientado a objetos de alta qualidade. A Inversão de Dependência sugere que as classes de alto nível não devem depender de classes de baixo nível. Em vez disso, ambos devem depender de abstrações (interfaces ou classes abstratas). Em outras palavras, o princípio afirma que as dependências devem ser invertidas, de modo que as classes de alto nível dependam de abstrações e não de detalhes de implementação. Isso promove a flexibilidade e a extensibilidade do código.
+
+

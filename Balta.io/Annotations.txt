@@ -1,0 +1,48 @@
+Agenda:
+O que é DI?
+O que é IoC?
+o que é DIP?
+Como os itens acima se relacionam?
+DI no ASP.NET
+
+Não é um padrão (Design patterns)
+Técnica que implementa o Ioc
+ -> Inversão de controle
+ -> DIP
+Ajuda no Baixo acoplamento
+Provê uma melhor divisão de responsabilidade
+O que eu preciso para trabalhar?
+ -> Quem vai me prover? não Importa
+
+Baixo Acoplamento
+imagina um sistema grande
+cada pedacinho tem que focar em uma coisa
+ -> não dá pra abraçar o mundo
+tem que funcionar de forma independente
+ -> facil de entender
+ -> facil manutenção
+ -> facil de dar manutenção
+ -> se precisar jogar fora e criar outro é fácil
+
+Inversão de controle
+Externaliza as responsabilidades
+ -> Delega
+Cria uma dependência externa
+o controller não é mais responsável pelo calculo do frete, agora ele depende de um serviço
+
+Implementação: Concreto, Materialização, é o "Como", é uma visão, uma versão, mais acoplado
+Abstração: Contrato, Só as definições, é o "O que", tem varias implementação, menos acoplado
+
+porque abstrair??
+Facilita as mudanças, imagina um cenário critico como a troca de um banco de dados
+Teste de unidade
+não podem depende de banco, rede ou qualquer outra coisa externa
+se você depende da abstração, a implementação não importa
+
+Principio da inversão de dependencia
+Depender de abstração e não da implementação
+
+DI é uma tecnica que aplica o principio de design chamado Ioc
+Ioc é um padrão de inversão de controle que prega o desacoplamento dos itens internos para dependecia externa, é oq vai gerar as dependencia
+DIP é o princio da inversão de dependencia, que diz que devemos depende das abstrações e não das implementações
+Service Locator responsavel por dizer qual serviço vai ser carregado
